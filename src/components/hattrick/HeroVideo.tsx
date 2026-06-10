@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
-// Football / turf cinematic footage (mixkit CDN — reliable, royalty-free)
+con// Football / turf cinematic footage (mixkit CDN — reliable, royalty-free)
 const VIDEO_SRC =
-  'https://assets.mixkit.co/videos/4147/4147-720.mp4'
+  '/videos/hero.mp4'
 const VIDEO_FALLBACK =
-  'https://assets.mixkit.co/videos/preview/mixkit-soccer-player-doing-tricks-with-a-ball-39880-large.mp4'
+  '/videos/hero-mobile.mp4'
 const POSTER =
   'https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1920&q=80'
 
