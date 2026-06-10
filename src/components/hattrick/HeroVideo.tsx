@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 
-con// Football / turf cinematic footage (mixkit CDN — reliable, royalty-free)
-const VIDEO_SRC =
-  '/videos/hero.mp4'
-const VIDEO_FALLBACK =
-  '/videos/hero-mobile.mp4'
+// Football / turf cinematic footage
+const VIDEO_SRC = '/videos/hero.mp4'
+
+const VIDEO_FALLBACK = '/videos/hero-mobile.mp4'
+
 const POSTER =
   'https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1920&q=80'
 
