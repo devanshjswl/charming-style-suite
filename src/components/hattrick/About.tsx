@@ -29,7 +29,7 @@ export function About() {
               <span className="text-[11px] tracking-[0.32em] uppercase text-foreground/60">01 — About</span>
             </div>
             <h2 className="font-display uppercase text-5xl md:text-6xl leading-[0.95] tracking-tight">
-              A new home<br />for the game.
+              A new home<br />for the games.
             </h2>
           </motion.div>
         </div>
@@ -42,16 +42,17 @@ export function About() {
             transition={{ duration: 0.9 }}
             className="text-2xl md:text-3xl leading-snug text-foreground/90 text-balance"
           >
-            Hattrick was built for the players who treat 8&nbsp;PM like kickoff and
-            espresso like a halftime ritual. Stadium-grade artificial turf, FIFA-quality
-            lighting, and a cafe that doesn't know the difference between a midfielder
-            and a regular.
+            Hattrick was built for the players who treat 8&nbsp;PM like kickoff —
+            or first ball — and espresso like a halftime ritual. Stadium-grade
+            artificial turf for football and cricket, ICC-spec nets, and a cafe
+            that doesn't know the difference between a midfielder, a top-order
+            bat, and a regular.
           </motion.p>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6">
             {[
-              { k: 'Pro Turf', v: 'FIFA Quality Pro 60mm pile, shock pad system, all-weather drainage.' },
-              { k: 'Floodlit', v: 'LED stadium floodlighting tuned for visibility and atmosphere.' },
+              { k: 'Dual Sport', v: 'FIFA-spec football turf and ICC-grade cricket pitch & nets under one roof.' },
+              { k: 'Floodlit', v: 'LED stadium floodlighting tuned for true bounce, true flight, true atmosphere.' },
               { k: 'Cafe Culture', v: 'Specialty coffee, post-match plates, and a soundtrack that gets it.' },
             ].map((item, i) => (
               <motion.div
