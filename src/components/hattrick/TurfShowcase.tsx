@@ -60,6 +60,20 @@ function TurfField() {
           <meshStandardMaterial color="#2a2f35" />
         </mesh>
       ))}
+
+      {/* Cricket stumps at center for dual-sport feel */}
+      {[-0.12, 0, 0.12].map((x, i) => (
+        <mesh key={`stump-${i}`} position={[x, 0.05, 1.4]}>
+          <cylinderGeometry args={[0.025, 0.025, 0.9, 12]} />
+          <meshStandardMaterial color="#f5f5f4" />
+        </mesh>
+      ))}
+      {[-0.06, 0.06].map((x, i) => (
+        <mesh key={`bail-${i}`} position={[x, 0.52, 1.4]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.015, 0.015, 0.14, 8]} />
+          <meshStandardMaterial color="#e7d9b5" />
+        </mesh>
+      ))}
     </group>
   )
 }
