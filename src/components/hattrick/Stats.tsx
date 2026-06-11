@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 const items = [
   { value: 7200, suffix: 'm²', label: 'Of Premium Turf' },
   { value: 36000, suffix: 'lx', label: 'Stadium Floodlight' },
-  { value: 14, suffix: 'k+', label: 'Matches Played' },
+  { value: 14, suffix: 'k+', label: 'Matches & Overs Played' },
   { value: 98, suffix: '%', label: 'Player Return Rate' },
 ]
 

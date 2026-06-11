@@ -60,6 +60,20 @@ function TurfField() {
           <meshStandardMaterial color="#2a2f35" />
         </mesh>
       ))}
+
+      {/* Cricket stumps at center for dual-sport feel */}
+      {[-0.12, 0, 0.12].map((x, i) => (
+        <mesh key={`stump-${i}`} position={[x, 0.05, 1.4]}>
+          <cylinderGeometry args={[0.025, 0.025, 0.9, 12]} />
+          <meshStandardMaterial color="#f5f5f4" />
+        </mesh>
+      ))}
+      {[-0.06, 0.06].map((x, i) => (
+        <mesh key={`bail-${i}`} position={[x, 0.52, 1.4]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.015, 0.015, 0.14, 8]} />
+          <meshStandardMaterial color="#e7d9b5" />
+        </mesh>
+      ))}
     </group>
   )
 }
@@ -77,19 +91,20 @@ export function TurfShowcase() {
           >
             <div className="flex items-center gap-3 mb-6">
               <span className="w-8 h-px" style={{ background: 'var(--sunset)' }} />
-              <span className="text-[11px] tracking-[0.32em] uppercase text-foreground/60">02 — The Turf</span>
+              <span className="text-[11px] tracking-[0.32em] uppercase text-foreground/60">02 — Football & Cricket</span>
             </div>
             <h2 className="font-display uppercase text-5xl md:text-6xl leading-[0.95] tracking-tight">
-              Engineered<br />for the<br />
-              <span style={{ color: 'var(--turf-glow)' }}>first touch.</span>
+              Two sports.<br />One stadium<br />
+              <span style={{ color: 'var(--turf-glow)' }}>grade surface.</span>
             </h2>
             <p className="mt-6 text-foreground/75 text-lg leading-relaxed max-w-md">
-              60mm FIFA Quality Pro fibre, shock-pad sub-base and a true bounce
-              you can feel from the first warm-up pass. Built for 7-a-side,
-              5-a-side, and the occasional Sunday final.
+              60mm FIFA Quality Pro fibre for football, ICC-grade matting and
+              run-ups for cricket — shock-pad sub-base, true bounce, true flight.
+              Built for 7-a-side, 5-a-side, box cricket, and the occasional
+              Sunday final.
             </p>
             <ul className="mt-8 space-y-3 text-sm text-foreground/75">
-              {['7 a-side full pitch', '5 a-side split pitch', 'All-weather drainage', 'LED stadium lighting'].map(
+              {['7 a-side football pitch', '5 a-side split pitch', 'Box cricket arena', 'ICC-spec practice nets', 'All-weather drainage', 'LED stadium lighting'].map(
                 (s) => (
                   <li key={s} className="flex items-center gap-3">
                     <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--turf-glow)' }} />

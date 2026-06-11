@@ -3,10 +3,10 @@ import { useRef } from 'react'
 
 const imgs = [
   { src: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80', label: 'Night Kickoff', span: 'md:row-span-2' },
-  { src: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80', label: 'Stadium Bowl', span: '' },
+  { src: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1200&q=80', label: 'Cover Drive', span: '' },
   { src: 'https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=1200&q=80', label: 'First Touch', span: '' },
   { src: 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=1200&q=80', label: 'Floodlit Pitch', span: 'md:col-span-2' },
-  { src: 'https://images.unsplash.com/photo-1556476049-2c1a7a5d4f8b?auto=format&fit=crop&w=1200&q=80', label: 'After Match', span: '' },
+  { src: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80', label: 'Stumps & Bails', span: '' },
   { src: 'https://images.unsplash.com/photo-1486286701208-1d58e9338013?auto=format&fit=crop&w=1200&q=80', label: 'Cafe Window', span: '' },
 ]
 

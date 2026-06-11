@@ -1,10 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
+import heroVideo from '../../assets/hero-turf.mp4.asset.json'
 
-// Football / turf cinematic footage
-const VIDEO_SRC = '/videos/hero.mp4'
-
-const VIDEO_FALLBACK = '/videos/hero-mobile.mp4'
+// Cinematic turf footage (CDN)
+const VIDEO_SRC = heroVideo.url
+const VIDEO_FALLBACK = '/videos/hero.mp4'
 
 const POSTER =
   'https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1920&q=80'
@@ -91,7 +91,7 @@ export function HeroVideo() {
           className="font-display uppercase text-balance text-[18vw] md:text-[10vw] leading-[0.85] tracking-tight text-white"
           style={{ textShadow: '0 8px 40px rgba(0,0,0,0.6)' }}
         >
-          Play the
+          Football.
           <br />
           <span style={{
             background: 'linear-gradient(90deg, #ffffff 0%, var(--sunset-soft) 60%, var(--sunset) 100%)',
@@ -99,7 +99,7 @@ export function HeroVideo() {
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
           }}>
-            beautiful game.
+            Cricket. Culture.
           </span>
         </motion.h1>
 
@@ -110,8 +110,9 @@ export function HeroVideo() {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="max-w-md text-foreground/75 text-base md:text-lg"
           >
-            Hattrick is a floodlit football turf and cafe where stadium energy
-            meets neighborhood ritual. Lace up, kick off, stay for the espresso.
+            A floodlit turf for football and cricket — built where stadium
+            energy meets neighborhood ritual. Kick off, take guard, stay for
+            the espresso.
           </motion.p>
 
           <motion.div
