@@ -1,18 +1,37 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import heroVideo from '../../assets/hero-turf.mp4.asset.json'
+import { useEffect, useRef, useState } from 'react'
+import heroMp4 from '../../assets/hero-turf-720.mp4.asset.json'
+import heroWebm from '../../assets/hero-turf-720.webm.asset.json'
 
-// Cinematic turf footage — served from Lovable CDN (absolute URL so
-// the video also resolves on external deployments like Vercel).
+// Optimized 720p, 24fps, muted footage on the Lovable CDN. Absolute
+// URLs so the video resolves on external deployments (e.g. Vercel).
 const CDN_BASE = 'https://charming-style-suite.lovable.app'
-const VIDEO_SRC = `${CDN_BASE}${heroVideo.url}`
-const VIDEO_FALLBACK = heroVideo.url
+const VIDEO_WEBM = `${CDN_BASE}${heroWebm.url}`
+const VIDEO_MP4 = `${CDN_BASE}${heroMp4.url}`
 
 const POSTER =
   'https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1920&q=80'
 
 export function HeroVideo() {
   const ref = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [ready, setReady] = useState(false)
+
+  // Only start playback once the browser reports it can play through
+  // the file without re-buffering. This prevents the stop/start
+  // stutter you get from autoplaying while still downloading.
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    const onReady = () => {
+      setReady(true)
+      v.play().catch(() => {})
+    }
+    if (v.readyState >= 4) onReady()
+    else v.addEventListener('canplaythrough', onReady, { once: true })
+    return () => v.removeEventListener('canplaythrough', onReady)
+  }, [])
+
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '25%'])
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
@@ -29,17 +48,27 @@ export function HeroVideo() {
       {/* Video layer with parallax */}
       <motion.div className="absolute inset-0" style={{ y, scale }}>
         <video
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
+          ref={videoRef}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${ready ? 'opacity-100' : 'opacity-0'}`}
           muted
           loop
           playsInline
           preload="auto"
+          autoPlay
+          disableRemotePlayback
           poster={POSTER}
         >
-          <source src={VIDEO_SRC} type="video/mp4" />
-          <source src={VIDEO_FALLBACK} type="video/mp4" />
+          <source src={VIDEO_WEBM} type="video/webm" />
+          <source src={VIDEO_MP4} type="video/mp4" />
         </video>
+        {!ready && (
+          <img
+            src={POSTER}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
       </motion.div>
 
       {/* Cinematic gradients */}
