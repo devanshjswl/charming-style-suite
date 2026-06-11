@@ -2,9 +2,11 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import heroVideo from '../../assets/hero-turf.mp4.asset.json'
 
-// Cinematic turf footage (CDN)
-const VIDEO_SRC = heroVideo.url
-const VIDEO_FALLBACK = '/videos/hero.mp4'
+// Cinematic turf footage — served from Lovable CDN (absolute URL so
+// the video also resolves on external deployments like Vercel).
+const CDN_BASE = 'https://charming-style-suite.lovable.app'
+const VIDEO_SRC = `${CDN_BASE}${heroVideo.url}`
+const VIDEO_FALLBACK = heroVideo.url
 
 const POSTER =
   'https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1920&q=80'
